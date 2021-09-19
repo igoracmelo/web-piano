@@ -44,6 +44,11 @@ export const Key = styled.button<KeyProps>`
 `
 
 export default function Piano() {
+  const playNote = (freq: number) => {
+  }
+
+  const stopNote = (freq: number) => {
+  }
 
   return (
     <Container tabIndex={1}>
@@ -54,6 +59,8 @@ export default function Piano() {
             <Key
               key={note.name}
               note={note}
+              onMouseDown={() => playNote(note.freq)} 
+              onMouseUp={() => stopNote(note.freq)} 
             />)}
         </KeyContainer>)
       }
