@@ -44,6 +44,16 @@ export const Key = styled.button<KeyProps>`
 `
 
 export default function Piano() {
+  const ctx = new AudioContext()
+  let notesPlaying: NotePlaying[] = []
+
+  const customSource = () => {
+    const source = ctx.createOscillator()
+    source.type = 'sine'
+    source.connect(ctx.destination)
+    return source
+  }
+
   const playNote = (freq: number) => {
   }
 
