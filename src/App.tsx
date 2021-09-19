@@ -1,8 +1,18 @@
 import React from 'react'
+import styled, { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+  }
+`
 
 function App() {
   return (
-    <h1>Hello Wold</h1>
+    <>
+      <GlobalStyle />
+    </>
   )
 }
 
