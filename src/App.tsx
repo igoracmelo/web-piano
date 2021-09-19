@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
+import Piano from './components/Piano'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -23,6 +24,7 @@ function App() {
     <>
       <GlobalStyle />
       <Container>
+        <Piano />
       </Container>
     </>
   )
