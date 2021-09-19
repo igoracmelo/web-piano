@@ -43,6 +43,11 @@ export const Key = styled.button<KeyProps>`
   `}
 `
 
+interface NotePlaying {
+  freq: number
+  source: AudioScheduledSourceNode
+}
+
 export default function Piano() {
   const ctx = new AudioContext()
   let notesPlaying: NotePlaying[] = []
@@ -55,9 +60,21 @@ export default function Piano() {
   }
 
   const playNote = (freq: number) => {
+    if (notesPlaying.some(notePlaying => notePlaying.freq === freq))
+      return
+    const source = customSource()
+    source.frequency.value = freq
+    source.start(0)
+    notesPlaying.push({ freq, source })
   }
 
   const stopNote = (freq: number) => {
+    const note = 
+      notesPlaying.filter(notePlaying => notePlaying.freq === freq)[0]
+    if (!note) return
+    note.source.stop()
+    notesPlaying = 
+      notesPlaying.filter(notesPlaying => notesPlaying.freq !== freq)
   }
 
   return (
