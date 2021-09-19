@@ -4,6 +4,10 @@ export const KeyContainer = styled.div`
   position: relative;
 `
 
+interface KeyProps {
+  note: Notes.Note
+}
+
 export const Key = styled.button<KeyProps>`
   width: 80px;
   height: 300px;
