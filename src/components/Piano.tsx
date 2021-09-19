@@ -1,4 +1,10 @@
 import styled, { css } from 'styled-components'
+import * as Notes from '../Notes'
+
+
+const Container = styled.div`
+  display: flex;
+`
 
 export const KeyContainer = styled.div`
   position: relative;
@@ -36,3 +42,21 @@ export const Key = styled.button<KeyProps>`
     }
   `}
 `
+
+export default function Piano() {
+
+  return (
+    <Container tabIndex={1}>
+      {
+        Notes.ChromaticScale.map(noteGroup => 
+        <KeyContainer>
+            { noteGroup.map(note => 
+            <Key
+              key={note.name}
+              note={note}
+            />)}
+        </KeyContainer>)
+      }
+    </Container>
+  )
+}
